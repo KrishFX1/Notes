@@ -1,0 +1,85 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>requesting..</title>
+    <link rel="icon" type="image/png" href="icon.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="icon.png" sizes="32x32">
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+    <script src="https://kit.fontawesome.com/908cc2638b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../notes/index.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
+
+
+</head>
+
+<body>
+    <li style="list-style: none;" id="list">
+        <div id="div">
+            <div class="space" style="height: 36.5%;display: inline-block; margin: 0; text-align: center;width: 100%;">
+            </div>
+            <div style="text-align: center; padding-top: 40px;" data-long-press-delay="600" class="popup">
+
+                <i class="fas fa-check" style="margin-left: auto; margin-right: auto;  font-size:68px; color: #4AB516;">
+                </i>
+                <div style="width: 100%; ">
+                    <br>
+                    <div
+                        style="color:white; padding: 7px;  background-color: #6990f2; font-size: medium; border-radius: 5px; width: fit-content; margin-left: auto; margin-bottom: 5px;margin-top: 4px; margin-right: auto;">
+                        Requested </div>
+                </div>
+            </div>
+            <div class="space" style="height: 32%;display: inline-block; margin: 0; text-align: center;width: 100%;">
+            </div>
+        </div>
+    </li>
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyAKRP4LAKzaglHkHJUNtdC91TaPCL4lCxM",
+            authDomain: "notes-35d02.firebaseapp.com",
+            projectId: "notes-35d02",
+            storageBucket: "notes-35d02.appspot.com",
+            messagingSenderId: "394958681149",
+            appId: "1:394958681149:web:4c88898d12580cd7ada654"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const firestore = firebase.firestore();
+
+
+        var url_string = window.location.href
+        var url = new URL(url_string);
+        var subject = url.searchParams.get("sub");
+        var chapter = url.searchParams.get("chap");
+
+        var userID = localStorage.getItem("userID")
+        var userName = localStorage.getItem("userName")
+
+        document.addEventListener("DOMContentLoaded", function (params) {
+            setTimeout(function () {
+                firestore.collection(" requests").add({
+                    chapter: chapter,
+                    subject: subject,
+                    userID: userID,
+                    userName: userName
+                }).then(() => {
+                    var location = `https://classnotes.netlify.app/Requests/requests.html`
+                    window.location.replace(`${location}`);
+
+                })
+            }, 700)
+
+        })
+
+
+    </script>
+</body>
+
+
+
+</html>

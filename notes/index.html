@@ -1,0 +1,42 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes</title>
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+    <script src="https://kit.fontawesome.com/908cc2638b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./index.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
+
+
+</head>
+
+<body>
+    <li style="list-style: none;height: 100%;" id="list">
+        <div style="background-color: #89A7F5; height: 100%;" id="div">
+            <div class="space" style="height: 45%;display: inline-block; margin: 0; text-align: center;width: 100%;">
+            </div>
+            <div data-long-press-delay="600" class="popup">
+                <div id="imageDiv" style="width: 100%;">
+                    <div class="imageSelect" id="0" style="margin: 0px auto auto auto; border-radius: 3px;
+                padding: 9.5px; 
+                background-color: #EFEFEF; width: fit-content;">Loading
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="space" style="height: 40%;display: inline-block; margin: 0; text-align: center;width: 100%;">
+            </div>
+        </div>
+
+    </li>
+</body>
+
+<script defer type="module" src="./index.js"></script>
+
+</html>

@@ -1,0 +1,85 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requests</title>
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/908cc2638b.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/png" href="icon.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="icon.png" sizes="32x32">
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+</head>
+
+<body>
+    <div style="text-align: center;" id="div">
+        <div class="space" style="height: 33%;display: inline-block; margin: 0; text-align: center;width: 100%;"></div>
+        <div class="popup">
+
+            <div style="text-align: center;" id="div0">
+                <div class="imageSelect" id="0" style="margin: 0px 8px 8px 8px; border-radius: 3px;
+        padding: 9.5px; font-size: large; 
+        background-color: #EFEFEF; max-width: 85%; width: 200px; float: left;">Loading
+                </div>
+            </div>
+        </div>
+        <div class="space" style="height: 32%;display: inline-block; margin: 0; text-align: center;width: 100%;"></div>
+    </div>
+    </div>
+    <script defer type="module" src="./requests.js"></script>
+</body>
+
+<style>
+    html {
+        background-color: #89A7F5;
+    }
+
+    body {
+        font-family: 'Roboto Slab', serif;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
+
+    .popup {
+        padding-top: 15px;
+        padding-bottom: 8px;
+        overflow: scroll;
+        background-color: white;
+        font-size: small;
+        align-items: center;
+        align-content: center;
+        margin-top: auto;
+        margin-left: 8%;
+        margin-bottom: auto;
+        margin-right: 8%;
+        width: 84%;
+        user-select: none;
+        border-radius: 5px;
+    }
+
+    .popupImage {
+        font-size: small;
+        margin-left: 8%;
+        margin-right: 8%;
+        background-color: white;
+        user-select: none;
+        height: fit-content;
+        overflow: auto;
+        align-items: center;
+        text-align: center;
+        align-content: center;
+    }
+
+    .imageSelect {
+        margin: 8px;
+    }
+</style>
+
+
+</html>

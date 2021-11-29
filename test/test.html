@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>jQuery rcrop Plugin Examples</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css"
+        integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-jcrop/2.0.4/js/Jcrop.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-jcrop/2.0.4/css/Jcrop.min.css" rel="stylesheet"
+        type="text/css">
+    </link>
+
+</head>
+
+<body>
+
+    <div class="profile-pic">
+        <label>Profile Pic</label>
+        <input type="file" name="profile_pic" id="profile-pic-input">
+        <div id="outputs">
+            <img src="" id="imgid">
+            <div id="outputI">
+            </div>
+        </div>
+
+        <button id="crop"> crop!</button>
+        <canvas id="canvasThumbResult" width="320px" height="320px"></canvas>
+
+        <script>
+            var a, b, c, d, e
+
+            $("#crop").on("click", function () {
+                var canvas = document.getElementById("canvasThumbResult");
+                var context = canvas.getContext("2d");
+                var img = document.getElementById("imgid"),
+                    $img = $(img),
+                    imgW = img.width,
+                    imgH = img.height;
+
+                var ratioY = imgH / $img.height(),
+                    ratioX = imgW / $img.width();
+
+                var getX = a * ratioX,
+                    getY = b * ratioY,
+                    getWidth = c * ratioX,
+                    getHeight = d * ratioY;
+                context.drawImage(img, getX, getY, getWidth, getHeight, 0, 0, 320, 320);
+                console.log(canvas.toDataURL())
+            });
+            $(document).ready(function () {
+                $('#profile-pic-input').change(function () {
+                    readURLProfile(this);
+
+                });
+
+                // setInterval(function (params) {
+                //     var srcOriginal = $("imgid").Jcrop('getDataURL');
+                //     console.log(srcOriginal)
+                // }, 1500)
+
+
+
+                $('#profile-pic-input').change(function () {
+                    var img = $('#imgid').Jcrop(
+                        {
+                            minSize: [200, 200],
+                            preserveAspectRatio: true,
+                            // preview: {
+                            //     display: true,
+                            //     size: [50, 50],//Also: ['100%', '100%'],
+                            //     wrapper: '#outputs' // where append preview to
+                            // },
+                            ondragleave: (c) => {
+                            },
+                            trackDocument: true,
+
+                            onChange: (res) => {
+                                a = res.x
+                                b = res.y
+                                c = res.w
+                                d = res.h
+                            }
+                        }
+                    );
+                    setTimeout(function () {
+                        document.getElementsByClassName("jcrop-active jcrop-touch")[0].style.width = `${screen.width - 50}px`
+                        document.getElementsByClassName("jcrop-active jcrop-touch")[0].style.height = `${screen.height / 1.5}px`
+
+                    }, 500)
+                    document.querySelectorAll("canvas").forEach((a) => {
+                        a.style.width = `${screen.width / 1.3}px`
+                        a.style.height = `${screen.height / 1.8}px`
+                    });
+
+                });
+
+                function readURLProfile(input) {
+                    if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+                        reader.onload = function (e) {
+                            var i = document.getElementById("imgid")
+                            i.src = e.target.result
+                            i.style.maxHeight = "70%"
+                            i.style.maxWidth = "100%"
+
+                        }
+                        reader.readAsDataURL(input.files[0]);
+                    }
+                }
+            });
+
+
+        </script>
+
+</body>
+
+
+</html>

@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Upload!</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="icon.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="icon.png" sizes="32x32">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />4
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+
+</head>
+
+<body style="text-align: center;">
+    <div
+        style="margin-left: auto; margin-right: auto; font-size:50px; margin-top: 25px;margin-bottom: 25px; color: white;">
+        upload</div>
+    <nav style="margin-top: 20px;">
+        <div class="drop-btn">
+            Select Subject & Chapter<span class="fas fa-caret-down"></span>
+        </div>
+        <div class="tooltip"></div>
+        <div class="wrapper">
+            <ul class="menu-bar">
+                <li class="english-item">
+                    <a href="#">
+                        <div class="icon">
+                            <span style="font-size: x-large;" class="fas fa-language"></span>
+                        </div>
+                        English
+                    </a>
+                </li>
+                <li class="maths-item">
+                    <a href="#">
+                        <div class="icon">
+                            <span style="font-size: x-large;" class="fas fa-square-root-alt"></span>
+                        </div>
+                        Maths
+                    </a>
+                </li>
+                <li class="science-item">
+                    <a href="#">
+                        <div class="icon">
+                            <span style="font-size: x-large;" class="fas fa-atom"></span>
+                        </div>
+                        Science
+                    </a>
+                </li>
+                <li class="hindi-item">
+                    <a href="#">
+                        <div class="icon">
+                            <span style="font-size: x-large;" class="fas fa-language"></span>
+                        </div>
+                        Hindi
+                    </a>
+                </li>
+                <li class="geography-item">
+                    <a href="#">
+                        <div class="icon">
+                            <span style="font-size: x-large;" class="fas fa-globe-asia"></span>
+                        </div>
+                        Geography
+                    </a>
+                </li>
+                <li class="economics-item">
+                    <a href="#">
+                        <div class="icon">
+                            <span style="font-size: x-large;" class="fas fa-rupee-sign"></span>
+                        </div>
+                        Economics
+                    </a>
+                </li>
+                <li class="history-item">
+                    <a href="#">
+                        <div class="icon">
+                            <span style="font-size: x-large;" class="fas fa-chess-rook"></span>
+                        </div>
+                        History
+                    </a>
+                </li>
+                <li class="civics-item">
+                    <a href="#">
+                        <div class="icon">
+                            <span style="font-size: x-large;" class="fas fa-gavel"></span>
+                        </div>
+                        Civics
+                    </a>
+                </li>
+                <li class="sanskrit-item">
+                    <a href="#">
+                        <div class="icon">
+                            <span style="font-size: x-large;" class="fas fa-language"></span>
+                        </div>
+                        Sanskrit
+                    </a>
+                </li>
+                <li>
+
+            </ul>
+            <!-- Settings & privacy Menu-items -->
+            <ul class="science-drop">
+                <li class="arrow back-science-btn"><span class="fas fa-arrow-left"></span>Select the Chapter</li>
+                <li class="1 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-question-circle"></span>
+                        </div>
+                        Chapter 1
+                    </a>
+                </li>
+                <li class="2 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                        Chapter 2
+                    </a>
+                </li>
+                <li class="3 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-comment-alt"></span>
+                        </div>
+                        Chapter 3
+                    </a>
+                </li>
+                <li class="4 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-exclamation-circle"></span>
+                        </div>
+                        Chapter 4
+                    </a>
+                </li>
+                <li class="5 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-question-circle"></span>
+                        </div>
+                        Chapter 5
+                    </a>
+                </li>
+                <li class="6 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                        Chapter 6
+                    </a>
+                </li>
+                <li class="7 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-comment-alt"></span>
+                        </div>
+                        Chapter 7
+                    </a>
+                </li>
+                <li class="8 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-exclamation-circle"></span>
+                        </div>
+                        Chapter 8
+                    </a>
+                </li>
+                <li class="9 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-question-circle"></span>
+                        </div>
+                        Chapter 9
+                    </a>
+                </li>
+                <li class="10 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                        Chapter 10
+                    </a>
+                </li>
+                <li class="11 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-comment-alt"></span>
+                        </div>
+                        Chapter 11
+                    </a>
+                </li>
+                <li class="12 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                        Chapter 12
+                    </a>
+                </li>
+                <li class="13 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-comment-alt"></span>
+                        </div>
+                        Chapter 13
+                    </a>
+                </li>
+                <li class="14 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                        Chapter 14
+                    </a>
+                </li>
+                <li class="15 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-comment-alt"></span>
+                        </div>
+                        Chapter 15
+                    </a>
+                </li>
+
+            </ul>
+            <!-- Help & support Menu-items -->
+            <ul class="maths-drop">
+                <li class="arrow back-maths-btn"><span class="fas fa-arrow-left"></span>Select the Chapter</li>
+                <li class="1 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-question-circle"></span>
+                        </div>
+                        Chapter 1
+                    </a>
+                </li>
+                <li class="2 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                        Chapter 2
+                    </a>
+                </li>
+                <li class="3 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-comment-alt"></span>
+                        </div>
+                        Chapter 3
+                    </a>
+                </li>
+                <li class="4 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-exclamation-circle"></span>
+                        </div>
+                        Chapter 4
+                    </a>
+                </li>
+                <li class="5 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-question-circle"></span>
+                        </div>
+                        Chapter 5
+                    </a>
+                </li>
+                <li class="6 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                        Chapter 6
+                    </a>
+                </li>
+                <li class="7 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-comment-alt"></span>
+                        </div>
+                        Chapter 7
+                    </a>
+                </li>
+                <li class="8 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-exclamation-circle"></span>
+                        </div>
+                        Chapter 8
+                    </a>
+                </li>
+                <li class="9 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-question-circle"></span>
+                        </div>
+                        Chapter 9
+                    </a>
+                </li>
+                <li class="10 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                        Chapter 10
+                    </a>
+                </li>
+                <li class="11 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-comment-alt"></span>
+                        </div>
+                        Chapter 11
+                    </a>
+                </li>
+                <li class="12 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                        Chapter 12
+                    </a>
+                </li>
+                <li class="13 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-comment-alt"></span>
+                        </div>
+                        Chapter 13
+                    </a>
+                </li>
+                <li class="14 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                        Chapter 14
+                    </a>
+                </li>
+                <li class="15 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-comment-alt"></span>
+                        </div>
+                        Chapter 15
+                    </a>
+                </li>
+            </ul>
+            <!-- Settings & privacy Menu-items -->
+            <ul class="geography-drop">
+                <li class="arrow back-geography-btn"><span class="fas fa-arrow-left"></span>Select the Chapter</li>
+                <li class="1 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-question-circle"></span>
+                        </div>
+                        Chapter 1
+                    </a>
+                </li>
+                <li class="2 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                        Chapter 2
+                    </a>
+                </li>
+                <li class="3 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-comment-alt"></span>
+                        </div>
+                        Chapter 3
+                    </a>
+                </li>
+                <li class="4 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-exclamation-circle"></span>
+                        </div>
+                        Chapter 4
+                    </a>
+                </li>
+                <li class="5">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-question-circle"></span>
+                        </div>
+                        Chapter 5
+                    </a>
+                </li>
+                <li class="6">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                        Chapter 6
+                    </a>
+                </li>
+
+
+            </ul>
+            <ul class="history-drop">
+                <li class="arrow back-history-btn"><span class="fas fa-arrow-left"></span>Select the Chapter</li>
+                <li class="1 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-question-circle"></span>
+                        </div>
+                        Chapter 1
+                    </a>
+                </li>
+                <li class="2 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                        Chapter 2
+                    </a>
+                </li>
+                <li class="3 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-comment-alt"></span>
+                        </div>
+                        Chapter 3
+                    </a>
+                </li>
+                <li class="4 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-exclamation-circle"></span>
+                        </div>
+                        Chapter 4
+                    </a>
+                </li>
+                <li class="5">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-question-circle"></span>
+                        </div>
+                        Chapter 5
+                    </a>
+                </li>
+
+            </ul>
+            <ul class="civics-drop">
+                <li class="arrow back-civics-btn"><span class="fas fa-arrow-left"></span>Select the Chapter</li>
+                <li class="1 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-question-circle"></span>
+                        </div>
+                        Chapter 1
+                    </a>
+                </li>
+                <li class="2 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                        Chapter 2
+                    </a>
+                </li>
+                <li class="3 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-comment-alt"></span>
+                        </div>
+                        Chapter 3
+                    </a>
+                </li>
+                <li class="4 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-exclamation-circle"></span>
+                        </div>
+                        Chapter 4
+                    </a>
+                </li>
+                <li class="5 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-question-circle"></span>
+                        </div>
+                        Chapter 5
+                    </a>
+                </li>
+            </ul>
+            <ul class="economics-drop">
+                <li class="arrow back-economics-btn"><span class="fas fa-arrow-left"></span>Select the Chapter</li>
+                <li class="1 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-question-circle"></span>
+                        </div>
+                        Chapter 1
+                    </a>
+                </li>
+                <li class="2 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                        Chapter 2
+                    </a>
+                </li>
+                <li class="3 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-comment-alt"></span>
+                        </div>
+                        Chapter 3
+                    </a>
+                </li>
+                <li class="4 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-exclamation-circle"></span>
+                        </div>
+                        Chapter 4
+                    </a>
+                </li>
+
+            </ul>
+            <!-- Help & support Menu-items -->
+            <ul class="english-drop">
+                <li class="arrow back-english-btn"><span class="fas fa-arrow-left"></span>Select the Chapter</li>
+                <li class="1 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-question-circle"></span>
+                        </div>
+                        Chapter 1
+                    </a>
+                </li>
+                <li class="2 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                        Chapter 2
+                    </a>
+                </li>
+                <li class="3 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-comment-alt"></span>
+                        </div>
+                        Chapter 3
+                    </a>
+                </li>
+                <li class="4 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-exclamation-circle"></span>
+                        </div>
+                        Chapter 4
+                    </a>
+                </li>
+                <li class="5 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-question-circle"></span>
+                        </div>
+                        Chapter 5
+                    </a>
+                </li>
+                <li class="6 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                        Chapter 6
+                    </a>
+                </li>
+                <li class="7 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-comment-alt"></span>
+                        </div>
+                        Chapter 7
+                    </a>
+                </li>
+                <li class="8 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-exclamation-circle"></span>
+                        </div>
+                        Chapter 8
+                    </a>
+                </li>
+                <li class="9 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-question-circle"></span>
+                        </div>
+                        Chapter 9
+                    </a>
+                </li>
+                <li class="10 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                        Chapter 10
+                    </a>
+                </li>
+                <li class="11 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-comment-alt"></span>
+                        </div>
+                        Chapter 11
+                    </a>
+                </li>
+            </ul>
+            <!-- Settings & privacy Menu-items -->
+            <ul class="hindi-drop">
+                <li class="arrow back-hindi-btn"><span class="fas fa-arrow-left"></span>Select the Chapter</li>
+                <li class="1 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-question-circle"></span>
+                        </div>
+                        Chapter 1
+                    </a>
+                </li>
+                <li class="2 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                        Chapter 2
+                    </a>
+                </li>
+                <li class="3 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-comment-alt"></span>
+                        </div>
+                        Chapter 3
+                    </a>
+                </li>
+                <li class="4 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-exclamation-circle"></span>
+                        </div>
+                        Chapter 4
+                    </a>
+                </li>
+                <li class="5 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-question-circle"></span>
+                        </div>
+                        Chapter 5
+                    </a>
+                </li>
+                <li class="6 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                        Chapter 6
+                    </a>
+                </li>
+                <li class="7 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-comment-alt"></span>
+                        </div>
+                        Chapter 7
+                    </a>
+                </li>
+                <li class="8 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-exclamation-circle"></span>
+                        </div>
+                        Chapter 8
+                    </a>
+                </li>
+                <li class="9 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-question-circle"></span>
+                        </div>
+                        Chapter 9
+                    </a>
+                </li>
+                <li class="10 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                        Chapter 10
+                    </a>
+                </li>
+                <li class="11 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-comment-alt"></span>
+                        </div>
+                        Chapter 11
+                    </a>
+                </li>
+                <li class="12 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                        Chapter 12
+                    </a>
+                </li>
+                <li class="13 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-comment-alt"></span>
+                        </div>
+                        Chapter 13
+                    </a>
+                </li>
+                <li class="14 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                        Chapter 14
+                    </a>
+                </li>
+                <li class="15 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-comment-alt"></span>
+                        </div>
+                        Chapter 15
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                        Chapter 16
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-comment-alt"></span>
+                        </div>
+                        Chapter 17
+                    </a>
+                </li>
+            </ul>
+            <!-- Help & support Menu-items -->
+            <ul class="sanskrit-drop">
+                <li class="arrow back-sanskrit-btn"><span class="fas fa-arrow-left"></span>Select the Chapter</li>
+                <li class="1 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-question-circle"></span>
+                        </div>
+                        Chapter 1
+                    </a>
+                </li>
+                <li class="2 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                        Chapter 2
+                    </a>
+                </li>
+                <li class="3 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-comment-alt"></span>
+                        </div>
+                        Chapter 3
+                    </a>
+                </li>
+                <li class="4 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-exclamation-circle"></span>
+                        </div>
+                        Chapter 4
+                    </a>
+                </li>
+                <li class="5 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-question-circle"></span>
+                        </div>
+                        Chapter 5
+                    </a>
+                </li>
+                <li class="6 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                        Chapter 6
+                    </a>
+                </li>
+                <li class="7 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-comment-alt"></span>
+                        </div>
+                        Chapter 7
+                    </a>
+                </li>
+                <li class="8 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-exclamation-circle"></span>
+                        </div>
+                        Chapter 8
+                    </a>
+                </li>
+                <li class="9 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-question-circle"></span>
+                        </div>
+                        Chapter 9
+                    </a>
+                </li>
+                <li class="10 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                        Chapter 10
+                    </a>
+                </li>
+                <li class="11 chapter">
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-comment-alt"></span>
+                        </div>
+                        Chapter 11
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="icon">
+                            <span class="fas fa-comment-alt"></span>
+                        </div>
+                        Chapter 12
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+    <script>
+        var subject
+        const drop_btn = document.querySelector(".drop-btn span");
+        const tooltip = document.querySelector(".tooltip");
+        const menu_wrapper = document.querySelector(".wrapper");
+        const menu_bar = document.querySelector(".menu-bar");
+
+        const hindi_drop = document.querySelector(".hindi-drop");
+        const english_drop = document.querySelector(".english-drop");
+        const sanskrit_drop = document.querySelector(".sanskrit-drop");
+        const science_drop = document.querySelector(".science-drop");
+        const geography_drop = document.querySelector(".geography-drop");
+        const maths_drop = document.querySelector(".maths-drop");
+        const history_drop = document.querySelector(".history-drop");
+        const civics_drop = document.querySelector(".civics-drop");
+        const economics_drop = document.querySelector(".economics-drop");
+
+        const hindi_item = document.querySelector(".hindi-item");
+        const english_item = document.querySelector(".english-item");
+        const sanskrit_item = document.querySelector(".sanskrit-item");
+        const science_item = document.querySelector(".science-item");
+        const geography_item = document.querySelector(".geography-item");
+        const maths_item = document.querySelector(".maths-item");
+        const history_item = document.querySelector(".history-item");
+        const civics_item = document.querySelector(".civics-item");
+        const economics_item = document.querySelector(".economics-item");
+
+
+        const hindi_btn = document.querySelector(".back-hindi-btn");
+        const english_btn = document.querySelector(".back-english-btn");
+        const sanskrit_btn = document.querySelector(".back-sanskrit-btn");
+        const science_btn = document.querySelector(".back-science-btn");
+        const geography_btn = document.querySelector(".back-geography-btn");
+        const maths_btn = document.querySelector(".back-maths-btn");
+        const history_btn = document.querySelector(".back-history-btn");
+        const civics_btn = document.querySelector(".back-civics-btn");
+        const economics_btn = document.querySelector(".back-economics-btn");
+
+        drop_btn.onclick = (() => {
+            menu_wrapper.classList.toggle("show");
+            tooltip.classList.toggle("show");
+            document.querySelector(".back-hindi-btn").click();
+            document.querySelector(".back-english-btn").click();
+            document.querySelector(".back-sanskrit-btn").click();
+            document.querySelector(".back-science-btn").click();
+            document.querySelector(".back-geography-btn").click();
+            document.querySelector(".back-maths-btn").click();
+            document.querySelector(".back-history-btn").click();
+            document.querySelector(".back-economics-btn").click();
+            document.querySelector(".back-civics-btn").click();
+        });
+
+        hindi_item.onclick = (() => {
+            subject = "hindi"
+            menu_bar.style.marginLeft = "-670px";
+            setTimeout(() => {
+                hindi_drop.style.display = "block";
+            }, 100);
+        });
+        hindi_btn.onclick = (() => {
+            menu_bar.style.marginLeft = "0px";
+            hindi_drop.style.display = "none";
+        });
+
+
+        english_item.onclick = (() => {
+            subject = "english"
+            menu_bar.style.marginLeft = "-670px";
+            setTimeout(() => {
+                english_drop.style.display = "block";
+            }, 100);
+        });
+        english_btn.onclick = (() => {
+            english_drop.style.display = "none";
+            menu_bar.style.marginLeft = "0px";
+        });
+
+        maths_item.onclick = (() => {
+            subject = "maths"
+            menu_bar.style.marginLeft = "-670px";
+            setTimeout(() => {
+                maths_drop.style.display = "block";
+            }, 100);
+        });
+        maths_btn.onclick = (() => {
+            menu_bar.style.marginLeft = "0px";
+            maths_drop.style.display = "none";
+        });
+
+
+        science_item.onclick = (() => {
+            subject = "science"
+            menu_bar.style.marginLeft = "-670px";
+            setTimeout(() => {
+                science_drop.style.display = "block";
+            }, 100);
+        });
+        science_btn.onclick = (() => {
+            science_drop.style.display = "none";
+            menu_bar.style.marginLeft = "0px";
+        });
+
+
+        geography_item.onclick = (() => {
+            subject = "geography"
+            menu_bar.style.marginLeft = "-670px";
+            setTimeout(() => {
+                geography_drop.style.display = "block";
+            }, 100);
+        });
+        geography_btn.onclick = (() => {
+            menu_bar.style.marginLeft = "0px";
+            geography_drop.style.display = "none";
+        });
+
+
+        civics_item.onclick = (() => {
+            subject = "civics"
+            menu_bar.style.marginLeft = "-670px";
+            setTimeout(() => {
+                civics_drop.style.display = "block";
+            }, 100);
+        });
+        civics_btn.onclick = (() => {
+            menu_bar.style.marginLeft = "0px";
+            civics_drop.style.display = "none";
+        });
+
+        history_item.onclick = (() => {
+            subject = "history"
+            menu_bar.style.marginLeft = "-670px";
+            setTimeout(() => {
+                history_drop.style.display = "block";
+            }, 100);
+        });
+        history_btn.onclick = (() => {
+            menu_bar.style.marginLeft = "0px";
+            history_drop.style.display = "none";
+        });
+
+
+        economics_item.onclick = (() => {
+            subject = "economics"
+            menu_bar.style.marginLeft = "-670px";
+            setTimeout(() => {
+                economics_drop.style.display = "block";
+            }, 100);
+        });
+        economics_btn.onclick = (() => {
+            menu_bar.style.marginLeft = "0px";
+            economics_drop.style.display = "none";
+        });
+
+
+        sanskrit_item.onclick = (() => {
+            subject = "sanskrit"
+            menu_bar.style.marginLeft = "-670px";
+            setTimeout(() => {
+                sanskrit_drop.style.display = "block";
+            }, 100);
+        });
+        sanskrit_btn.onclick = (() => {
+            sanskrit_drop.style.display = "none";
+            menu_bar.style.marginLeft = "0px";
+        });
+
+        document.getElementsByClassName("wrapper")[0].addEventListener(("click"), function (e) {
+            if (e.path[1].classList[1] == "chapter") {
+                var chapter = e.path[1].classList[0]
+                var a = `?sub=${subject}&chap=${chapter}`
+                var location = `https://classnotes.netlify.app/upload/notes.html${a}`
+                window.location.replace(location)
+            }
+        })
+
+    </script>
+</body>
+
+</html>
